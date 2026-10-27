@@ -1,0 +1,6 @@
+{
+  "name": "AuraBrand - Brand Identity Generator",
+  "description": "Generate comprehensive Brand Bibles from company missions, featuring primary logos, secondary marks, curated 5-color palettes, and Google Font pairings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

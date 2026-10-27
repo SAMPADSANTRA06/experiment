@@ -1,0 +1,25 @@
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-change-me}
+      MYSQL_DATABASE: smart_inventory
+    volumes:
+      - dbdata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${DB_PASSWORD:-change-me}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: mysql+pymysql://root:${DB_PASSWORD:-change-me}@db:3306/smart_inventory
+      SEED_DEMO: ${SEED_DEMO:-1}
+    ports:
+      - "5000:5000"
+volumes:
+  dbdata:

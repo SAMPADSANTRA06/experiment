@@ -1,0 +1,9 @@
+Flask>=3.0
+SQLAlchemy>=2.0
+PyMySQL>=1.1
+cryptography>=42
+pandas>=2.2
+numpy>=1.26
+python-dotenv>=1.0
+gunicorn>=22.0
+pytest>=8.0
